@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  ListTableViewController.swift
 //  Duplicity
 //
 //  Created by Kaitlyn on 3/13/15.
@@ -8,14 +8,11 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
