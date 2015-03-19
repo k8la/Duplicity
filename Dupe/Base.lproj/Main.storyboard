@@ -213,14 +213,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uE6-Qd-MaQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="uE6-Qd-MaQ">
                                 <rect key="frame" x="177" y="90" width="117" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="3rP-Z8-gNz"/>
                                     <constraint firstAttribute="width" constant="117" id="wgJ-zY-YGE"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yNx-kq-jZM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="yNx-kq-jZM">
                                 <rect key="frame" x="321" y="90" width="117" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="AhZ-8p-h2C"/>
@@ -370,7 +370,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="submit:" destination="DCo-SP-Sng" eventType="touchUpInside" id="lua-tp-1xv"/>
+                                    <action selector="submit:" destination="DCo-SP-Sng" eventType="touchUpInside" id="RVf-Ik-gOn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Submit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cj-J3-mJj">
@@ -420,16 +420,16 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstBrand" destination="Ww7-id-3vn" id="lfu-zV-pb8"/>
-                        <outlet property="firstImage" destination="uE6-Qd-MaQ" id="asw-fD-eGv"/>
-                        <outlet property="firstName" destination="0Y2-BX-9mE" id="Z30-ce-XWP"/>
-                        <outlet property="firstPrice" destination="Bcl-FG-de4" id="mpY-zH-XFP"/>
-                        <outlet property="firstType" destination="V1L-Vd-aKn" id="pTp-Ht-xnQ"/>
-                        <outlet property="secondBrand" destination="J4a-CS-nyZ" id="e01-cs-jlg"/>
-                        <outlet property="secondImage" destination="yNx-kq-jZM" id="gH1-1Y-BPL"/>
-                        <outlet property="secondName" destination="gTc-Ew-uOZ" id="UCA-AK-d4Z"/>
-                        <outlet property="secondPrice" destination="wHl-Zl-phc" id="oYM-XY-Qs2"/>
-                        <outlet property="secondType" destination="Anc-Yr-SVS" id="B19-UA-geG"/>
+                        <outlet property="firstBrand" destination="Ww7-id-3vn" id="YOA-03-ULp"/>
+                        <outlet property="firstImage" destination="uE6-Qd-MaQ" id="zVg-RF-HKD"/>
+                        <outlet property="firstName" destination="0Y2-BX-9mE" id="ARI-yx-UkO"/>
+                        <outlet property="firstPrice" destination="Bcl-FG-de4" id="8bI-S9-Bkj"/>
+                        <outlet property="firstType" destination="V1L-Vd-aKn" id="fCr-Ko-XI0"/>
+                        <outlet property="secondBrand" destination="J4a-CS-nyZ" id="fMh-W1-HIi"/>
+                        <outlet property="secondImage" destination="yNx-kq-jZM" id="OEZ-GG-vtt"/>
+                        <outlet property="secondName" destination="gTc-Ew-uOZ" id="O7d-yo-Eu6"/>
+                        <outlet property="secondPrice" destination="wHl-Zl-phc" id="Xqt-Qy-kDG"/>
+                        <outlet property="secondType" destination="Anc-Yr-SVS" id="Ylk-ag-ydI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJR-fg-86g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -456,6 +456,7 @@
     <resources>
         <image name="detail.png" width="2100" height="2097"/>
         <image name="login1.png" width="1800" height="1800"/>
+        <image name="placeholder.png" width="96" height="96"/>
         <image name="rectangle.png" width="363" height="114"/>
     </resources>
     <inferredMetricsTieBreakers>
