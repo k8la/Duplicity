@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84A6AF7E1AB3782D002B79AD"
-               BuildableName = "Dupliciti.app"
+               BuildableName = "Duplicity.app"
                BlueprintName = "Duplicity"
                ReferencedContainer = "container:Duplicity.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84A6AF961AB3782D002B79AD"
-               BuildableName = "DuplicitiTests.xctest"
+               BuildableName = "DuplicityTests.xctest"
                BlueprintName = "DuplicityTests"
                ReferencedContainer = "container:Duplicity.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84A6AF961AB3782D002B79AD"
-               BuildableName = "DuplicitiTests.xctest"
+               BuildableName = "DuplicityTests.xctest"
                BlueprintName = "DuplicityTests"
                ReferencedContainer = "container:Duplicity.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A6AF7E1AB3782D002B79AD"
-            BuildableName = "Dupliciti.app"
+            BuildableName = "Duplicity.app"
             BlueprintName = "Duplicity"
             ReferencedContainer = "container:Duplicity.xcodeproj">
          </BuildableReference>
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A6AF7E1AB3782D002B79AD"
-            BuildableName = "Dupliciti.app"
+            BuildableName = "Duplicity.app"
             BlueprintName = "Duplicity"
             ReferencedContainer = "container:Duplicity.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A6AF7E1AB3782D002B79AD"
-            BuildableName = "Dupliciti.app"
+            BuildableName = "Duplicity.app"
             BlueprintName = "Duplicity"
             ReferencedContainer = "container:Duplicity.xcodeproj">
          </BuildableReference>

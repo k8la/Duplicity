@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Foundation
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate {
+class PostViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    
+    var currentPickerTarget: UIImageView!
+    var photoSelected:Bool = false
+    
+    var active:Bool = false
     
     
     @IBOutlet weak var firstImage: UIImageView!
@@ -34,8 +40,146 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate {
     
     
     @IBAction func submit(sender: AnyObject) {
+        
+        var post = PFObject(className: "Post")
+        
+        
+        post["firstType"] = firstType.text
+        post["firstBrand"] = firstBrand.text
+        post["firstName"] = firstName.text
+        post["firstPrice"] = firstPrice.text
+        
+        post["secondType"] = secondType.text
+        post["secondBrand"] = secondBrand.text
+        post["secondName"] = secondName.text
+        post["secondPrice"] = secondPrice.text
+        
+        let firstImageData = UIImagePNGRepresentation(self.firstImage.image)
+        let secondImageData = UIImagePNGRepresentation(self.secondImage.image)
+        
+        let firstImageFile = PFFile(name: "image.png", data: firstImageData)
+        let secondImageFile = PFFile(name: "image2.png", data: secondImageData)
+        
+        post["firstImageFile"] = firstImageFile
+        post["secondImageFile"] = secondImageFile
+        
+        post.saveInBackground()
+        
+        
+        
     }
     
+    @IBAction func selectFirstImage(sender: AnyObject) {
+        
+        currentPickerTarget = firstImage
+        
+        photoSelected = true
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            var image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            image.allowsEditing = true
+            
+            self.presentViewController(image, animated: true, completion: nil)
+            
+           
+        })
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            var image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.Camera
+            image.allowsEditing = true
+            
+            self.presentViewController(image, animated: true, completion: nil)
+
+        })
+        
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Cancelled")
+        })
+        
+        
+
+        optionMenu.addAction(selectPhotoAction)
+        optionMenu.addAction(takePhotoAction)
+        optionMenu.addAction(cancelAction)
+        
+
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func selectSecondImage(sender: AnyObject) {
+        currentPickerTarget = secondImage
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Photo Library", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            
+            
+            var image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            image.allowsEditing = true
+            
+            self.presentViewController(image, animated: true, completion: nil)
+            
+            
+        })
+        let saveAction = UIAlertAction(title: "Take Photo", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            var image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.Camera
+            image.allowsEditing = true
+            
+            self.presentViewController(image, animated: true, completion: nil)
+            
+
+            
+        })
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Cancelled")
+        })
+        
+        
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+                photoSelected = true
+        
+        
+    }
+    
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        println("Image selected")
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        currentPickerTarget.image = image
+
+        
+    }
     
     
     //import UIKit
@@ -148,20 +292,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate {
     //            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
     //
     //
-    //            var post = PFObject(className: "Post")
-    //
-    //
-    //            post["firstType"] = firstType.text
-    //            //            post["firstBrand"] = firstBrand.text
-    //            post["firstName"] = firstName.text
-    //            post["firstPrice"] = firstPrice.text
-    //
-    //            post["secondType"] = secondType.text
-    //            post["secondBrand"] = secondBrand.text
-    //            post["secondName"] = secondName.text
-    //            post["secondPrice"] = secondPrice.text
-    //
-    //            post.saveInBackground()
+
     //
     //
     //            //            post["Title"] = shareText.text
@@ -228,20 +359,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate {
     //
     //    }
     //
-    //
-    //
-    //
-    //
-    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-    //        println("Image selected")
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //        
-    //        firstImage.image = image
-    //        secondImage.image = image
-    //        
-    //        photoSelected = true
-    //        
-    //    }
+
     //    
     //    override func viewDidLoad() {
     //        super.viewDidLoad()
@@ -267,6 +385,33 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate {
     //    
     //}
     //
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+//        
+//        photoSelected = false
+//        
+//        imageToPost.image = UIImage(named: "315px-Blank_woman_placeholder.svg")
+//        
+//        shareText.text = ""
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: "didTapView")
+        self.view.addGestureRecognizer(tapRecognizer)
+//        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
+    
+
+    func didTapView(){
+        self.view.endEditing(true)
+    }
 
 }
