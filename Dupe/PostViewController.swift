@@ -44,15 +44,26 @@ class PostViewController: UIViewController, UINavigationControllerDelegate,UIIma
         var post = PFObject(className: "Post")
         
         
-        post["firstType"] = firstType.text
-        post["firstBrand"] = firstBrand.text
-        post["firstName"] = firstName.text
-        post["firstPrice"] = firstPrice.text
+//        post["firstType"] = firstType.text
+//        post["firstBrand"] = firstBrand.text
+//        post["firstName"] = firstName.text
+//        post["firstPrice"] = firstPrice.text
+//        
+//        post["secondType"] = secondType.text
+//        post["secondBrand"] = secondBrand.text
+//        post["secondName"] = secondName.text
+//        post["secondPrice"] = secondPrice.text
         
-        post["secondType"] = secondType.text
-        post["secondBrand"] = secondBrand.text
-        post["secondName"] = secondName.text
-        post["secondPrice"] = secondPrice.text
+        post["firstType"] = "chachacha"
+        post["firstBrand"] = "chachacha"
+        post["firstName"] = "chachacha"
+        post["firstPrice"] = "chachacha"
+        
+        post["secondType"] = "chachacha"
+        post["secondBrand"] = "chachacha"
+        post["secondName"] = "chachacha"
+        post["secondPrice"] = "chachacha"
+
         
         let firstImageData = UIImagePNGRepresentation(self.firstImage.image)
         let secondImageData = UIImagePNGRepresentation(self.secondImage.image)
@@ -63,9 +74,16 @@ class PostViewController: UIViewController, UINavigationControllerDelegate,UIIma
         post["firstImageFile"] = firstImageFile
         post["secondImageFile"] = secondImageFile
         
-        post.saveInBackground()
-        
-        
+        post.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if success == true {
+                // The object has been saved.
+                println("successfully saved")
+            } else {
+                // There was a problem, check error.description
+                println("fuxored")
+            }
+        }
         
     }
     

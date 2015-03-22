@@ -22,6 +22,7 @@
 		84662A591AB77FAF003F19E5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84662A581AB77FAF003F19E5 /* libsqlite3.dylib */; };
 		84662A5B1AB78910003F19E5 /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 84662A5A1AB78910003F19E5 /* rectangle.png */; };
 		84662A5D1ABA27BC003F19E5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84662A5C1ABA27BC003F19E5 /* ListViewController.swift */; };
+		8482C0DA1ABE14AB00F8A726 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482C0D91ABE14AB00F8A726 /* CustomTableViewCell.swift */; };
 		84A3E4021ABA4E7B0074734E /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A3E4011ABA4E7B0074734E /* placeholder.png */; };
 		84A3E4041ABA65690074734E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A3E4031ABA65690074734E /* PostViewController.swift */; };
 		84A6AF851AB3782D002B79AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6AF841AB3782D002B79AD /* AppDelegate.swift */; };
@@ -87,6 +88,7 @@
 		84662A581AB77FAF003F19E5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		84662A5A1AB78910003F19E5 /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectangle.png; path = ../../../Desktop/Dupe/rectangle.png; sourceTree = "<group>"; };
 		84662A5C1ABA27BC003F19E5 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8482C0D91ABE14AB00F8A726 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		84A3E4001ABA49E70074734E /* Duplicity-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Duplicity-Bridging-Header.h"; sourceTree = "<group>"; };
 		84A3E4011ABA4E7B0074734E /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../../Desktop/Dupe/placeholder.png; sourceTree = "<group>"; };
 		84A3E4031ABA65690074734E /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				84A6AF8B1AB3782D002B79AD /* Main.storyboard */,
 				84A3E4031ABA65690074734E /* PostViewController.swift */,
 				84662A5C1ABA27BC003F19E5 /* ListViewController.swift */,
+				8482C0D91ABE14AB00F8A726 /* CustomTableViewCell.swift */,
 				84A6B0151AB3B962002B79AD /* LoginViewController.swift */,
 				84A6AF8E1AB3782D002B79AD /* Images.xcassets */,
 				84A3E4001ABA49E70074734E /* Duplicity-Bridging-Header.h */,
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8482C0DA1ABE14AB00F8A726 /* CustomTableViewCell.swift in Sources */,
 				84A6B0161AB3B962002B79AD /* LoginViewController.swift in Sources */,
 				84A6AF851AB3782D002B79AD /* AppDelegate.swift in Sources */,
 				84662A5D1ABA27BC003F19E5 /* ListViewController.swift in Sources */,
