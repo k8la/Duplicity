@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ListViewController: UITableViewController {
+class ListViewController: UITableViewController{
 
-    
-    
+
+    var searchController = UISearchController()
+    var searchResults = []
+
     
     var firstType = [String]()
     var firstBrand = [String]()
@@ -26,23 +28,30 @@ class ListViewController: UITableViewController {
     var secondPrice = [String]()
     var secondImages = [UIImage]()
     var secondImageFiles = [PFFile]()
-    
-    
-//    post["firstType"] = firstType.text
-//    post["firstBrand"] = firstBrand.text
-//    post["firstName"] = firstName.text
-//    post["firstPrice"] = firstPrice.text
-//    
-//    post["secondType"] = secondType.text
-//    post["secondBrand"] = secondBrand.text
-//    post["secondName"] = secondName.text
-//    post["secondPrice"] = secondPrice.text
 
     
-
+//    func updateSearchResultsForSearchController(searchController: UISearchController)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.searchResults = []
+//        self.searchController = UISearchController(searchResultsController: nil)
+//        self.searchController.searchResultsUpdater = self
+//        self.searchController.delegate = self
+//        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
+//        self.tableView.tableHeaderView = self.searchController.searchBar
+//        self.definesPresentationContext = true
+//        
+//        return searchController
+
+        
+//        let controller = UISearchController(searchResultsController: nil)
+//        controller.searchResultsUpdater = self
+//        controller.hidesNavigationBarDuringPresentation = true
+//        controller.dimsBackgroundDuringPresentation = false
+//        controller.searchBar.sizeToFit()
+
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
@@ -69,13 +78,7 @@ class ListViewController: UITableViewController {
                     self.secondName.append(object["secondName"] as String)
                     self.secondPrice.append(object["secondPrice"] as String)
 //                    self.secondImages.append(object["secondImage"] as UIImage)
-                    self.firstImageFiles.append(object["secondImageFile"] as PFFile)
-
-                    
-                    
-                    
-                    
-
+                    self.secondImageFiles.append(object["secondImageFile"] as PFFile)
                     
                     self.tableView.reloadData()
                 } // for ojbect in objects
@@ -85,11 +88,7 @@ class ListViewController: UITableViewController {
             } // if error == nil
         
         } //query.findObjects
-            
-    
-
-        // Reload the table
-//        self.tableView.reloadData()
+        
     }
 
 
@@ -142,24 +141,21 @@ class ListViewController: UITableViewController {
                 cell.firstImage.image = image
             }
             
+        }
+        
+        secondImageFiles[indexPath.row].getDataInBackgroundWithBlock{
+            (imageData: NSData!, error: NSError!) -> Void in
+            
+            if error == nil {
+                println("found image")
+                let image = UIImage(data: imageData)
+                
+                cell.secondImage.image = image
+            }
             
         }
 
-        
-        
-//        imageFiles[indexPath.row].getDataInBackgroundWithBlock{
-//            (imageData: NSData!, error: NSError!) -> Void in
-//            
-//            if error == nil {
-//                
-//                let image = UIImage(data: imageData)
-//                
-//                myCell.postedImage.image = image
-//            }
-//            
-//            
-//        }
-//        
+
         
         return cell
         
