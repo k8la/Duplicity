@@ -8,20 +8,23 @@
 
 import UIKit
 
-class ListViewController: UITableViewController{
+class ListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
 
-    var searchController = UISearchController()
     var searchResults = []
+    var searchActive : Bool = false
 
-    
+    var filteredData = [Product]()
+
     var firstType = [String]()
     var firstBrand = [String]()
     var firstName = [String]()
     var firstPrice = [String]()
     var firstImages = [UIImage]()
     var firstImageFiles = [PFFile]()
-    
+
     var secondType = [String]()
     var secondBrand = [String]()
     var secondName = [String]()
@@ -29,140 +32,369 @@ class ListViewController: UITableViewController{
     var secondImages = [UIImage]()
     var secondImageFiles = [PFFile]()
 
-    
-//    func updateSearchResultsForSearchController(searchController: UISearchController)
-    
+    //    func updateSearchResultsForSearchController(searchController: UISearchController)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.searchResults = []
-//        self.searchController = UISearchController(searchResultsController: nil)
-//        self.searchController.searchResultsUpdater = self
-//        self.searchController.delegate = self
-//        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
-//        self.tableView.tableHeaderView = self.searchController.searchBar
-//        self.definesPresentationContext = true
-//        
-//        return searchController
 
-        
-//        let controller = UISearchController(searchResultsController: nil)
-//        controller.searchResultsUpdater = self
-//        controller.hidesNavigationBarDuringPresentation = true
-//        controller.dimsBackgroundDuringPresentation = false
-//        controller.searchBar.sizeToFit()
+        /* Setup delegates */
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
+        //        self.searchResults = []
+        //        self.searchController = UISearchController(searchResultsController: nil)
+        //        self.searchController.searchResultsUpdater = self
+        //        self.searchController.delegate = self
+        //        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
+        //        self.tableView.tableHeaderView = self.searchController.searchBar
+        //        self.definesPresentationContext = true
+        //
+        //        return searchController
 
-        
+
+        //        let controller = UISearchController(searchResultsController: nil)
+        //        controller.searchResultsUpdater = self
+        //        controller.hidesNavigationBarDuringPresentation = true
+        //        controller.dimsBackgroundDuringPresentation = false
+        //        controller.searchBar.sizeToFit()
+
+
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        
+
+
         var query = PFQuery(className:"Post")
-        
+
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 //success
                 println("Successfully retrieved \(objects.count) dupes.")
-                
+
                 for object in objects {
-                    
+
                     self.firstType.append(object["firstType"] as String)
                     self.firstBrand.append(object["firstBrand"] as String)
                     self.firstName.append(object["firstName"] as String)
                     self.firstPrice.append(object["firstPrice"] as String)
-//                    self.firstImages.append(object["firstImage"] as UIImage)
+                    //                    self.firstImages.append(object["firstImage"] as UIImage)
                     self.firstImageFiles.append(object["firstImageFile"] as PFFile)
-                    
+
                     self.secondType.append(object["secondType"] as String)
                     self.secondBrand.append(object["secondBrand"] as String)
                     self.secondName.append(object["secondName"] as String)
                     self.secondPrice.append(object["secondPrice"] as String)
-//                    self.secondImages.append(object["secondImage"] as UIImage)
+                    //                    self.secondImages.append(object["secondImage"] as UIImage)
                     self.secondImageFiles.append(object["secondImageFile"] as PFFile)
-                    
+
                     self.tableView.reloadData()
                 } // for ojbect in objects
-                
+
             } else {
                 println(error)
             } // if error == nil
-        
+
         } //query.findObjects
-        
+
     }
 
 
-    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+
+        filteredData.removeAll(keepCapacity: false)
+
+
+        //To add searched FirstBrand
+        var filteredFirstBrand = [String]()
+        filteredFirstBrand = firstBrand.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        for str in filteredFirstBrand {
+            println("FirstBrand , \(str)!")
+            var index:Int
+            index = find(firstBrand, str)!
+            var tempProduct = Product()
+            tempProduct.firstBrand = firstBrand[index]
+            tempProduct.firstName = firstName[index]
+            tempProduct.firstPrice = firstPrice[index]
+            tempProduct.firstType = firstType[index]
+            tempProduct.firstImageFiles = firstImageFiles[index]
+            tempProduct.secondBrand = secondBrand[index]
+            tempProduct.secondName = secondName[index]
+            tempProduct.secondPrice = secondPrice[index]
+            tempProduct.secondType = secondType[index]
+            tempProduct.secondImageFiles = secondImageFiles[index]
+            filteredData.append(tempProduct)
+        }
+
+        //To add searched SecondBrand
+        var filteredSecondBrand = [String]()
+        filteredSecondBrand = secondBrand.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        for str in filteredSecondBrand {
+            println("SecondBrand , \(str)!")
+            var index:Int
+            index = find(secondBrand, str)!
+            var tempProduct = Product()
+            tempProduct.firstBrand = firstBrand[index]
+            tempProduct.firstName = firstName[index]
+            tempProduct.firstPrice = firstPrice[index]
+            tempProduct.firstType = firstType[index]
+            tempProduct.firstImageFiles = firstImageFiles[index]
+            tempProduct.secondBrand = secondBrand[index]
+            tempProduct.secondName = secondName[index]
+            tempProduct.secondPrice = secondPrice[index]
+            tempProduct.secondType = secondType[index]
+            tempProduct.secondImageFiles = secondImageFiles[index]
+            filteredData.append(tempProduct)
+        }
+        
+
+        //To add searched FirstType
+        var filteredFirstType = [String]()
+        filteredFirstType = firstType.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        for str in filteredFirstType {
+            println("FirstType , \(str)!")
+            var index:Int
+            index = find(firstType, str)!
+            var tempProduct = Product()
+            tempProduct.firstBrand = firstBrand[index]
+            tempProduct.firstName = firstName[index]
+            tempProduct.firstPrice = firstPrice[index]
+            tempProduct.firstType = firstType[index]
+            tempProduct.firstImageFiles = firstImageFiles[index]
+            tempProduct.secondBrand = secondBrand[index]
+            tempProduct.secondName = secondName[index]
+            tempProduct.secondPrice = secondPrice[index]
+            tempProduct.secondType = secondType[index]
+            tempProduct.secondImageFiles = secondImageFiles[index]
+            filteredData.append(tempProduct)
+        }
+        
+
+        //To add searched SecondType
+        var filteredSecondType = [String]()
+        filteredSecondType = secondType.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        for str in filteredSecondType {
+            println("SecondType , \(str)!")
+            var index:Int
+            index = find(secondType, str)!
+            var tempProduct = Product()
+            tempProduct.firstBrand = firstBrand[index]
+            tempProduct.firstName = firstName[index]
+            tempProduct.firstPrice = firstPrice[index]
+            tempProduct.firstType = firstType[index]
+            tempProduct.firstImageFiles = firstImageFiles[index]
+            tempProduct.secondBrand = secondBrand[index]
+            tempProduct.secondName = secondName[index]
+            tempProduct.secondPrice = secondPrice[index]
+            tempProduct.secondType = secondType[index]
+            tempProduct.secondImageFiles = secondImageFiles[index]
+            filteredData.append(tempProduct)
+        }
+        
+
+        //To add searched FirstName
+        var filteredFirstName = [String]()
+        filteredFirstName = firstName.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        for str in filteredFirstName {
+            println("FirstName , \(str)!")
+            var index:Int
+            index = find(firstName, str)!
+            var tempProduct = Product()
+            tempProduct.firstBrand = firstBrand[index]
+            tempProduct.firstName = firstName[index]
+            tempProduct.firstPrice = firstPrice[index]
+            tempProduct.firstType = firstType[index]
+            tempProduct.firstImageFiles = firstImageFiles[index]
+            tempProduct.secondBrand = secondBrand[index]
+            tempProduct.secondName = secondName[index]
+            tempProduct.secondPrice = secondPrice[index]
+            tempProduct.secondType = secondType[index]
+            tempProduct.secondImageFiles = secondImageFiles[index]
+            filteredData.append(tempProduct)
+        }
+        
+
+        //to add searched SecondName
+        var filteredSecondName = [String]()
+        filteredSecondName = secondName.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        for str in filteredSecondName {
+            println("SecondName , \(str)!")
+            var index:Int
+            index = find(secondName, str)!
+            var tempProduct = Product()
+            tempProduct.firstBrand = firstBrand[index]
+            tempProduct.firstName = firstName[index]
+            tempProduct.firstPrice = firstPrice[index]
+            tempProduct.firstType = firstType[index]
+            tempProduct.firstImageFiles = firstImageFiles[index]
+            tempProduct.secondBrand = secondBrand[index]
+            tempProduct.secondName = secondName[index]
+            tempProduct.secondPrice = secondPrice[index]
+            tempProduct.secondType = secondType[index]
+            tempProduct.secondImageFiles = secondImageFiles[index]
+            filteredData.append(tempProduct)
+        }
+
+        self.tableView.reloadData()
+    }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        //If no item is searched then show all data
+        if(searchBar.text != "") {
+            return filteredData.count
+        }
         return self.firstType.count
     }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 227
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 284
     }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as CustomTableViewCell
-        
-//        myCell.title.text = titles[indexPath.row]
-//        myCell.username.text = usernames[indexPath.row]
-        
-        cell.firstType.text = firstType[indexPath.row]
-        cell.firstBrand.text = firstBrand[indexPath.row]
-        cell.firstName.text = firstName[indexPath.row]
-        cell.firstPrice.text = firstPrice[indexPath.row]
-        cell.firstBrand.text = firstBrand[indexPath.row]
-        
-        
-        cell.secondType.text = secondType[indexPath.row]
-        cell.secondBrand.text = secondBrand[indexPath.row]
-        cell.secondName.text = secondName[indexPath.row]
-        cell.secondPrice.text = secondPrice[indexPath.row]
-        cell.secondBrand.text = secondBrand[indexPath.row]
-        
-        
-        firstImageFiles[indexPath.row].getDataInBackgroundWithBlock{
-            (imageData: NSData!, error: NSError!) -> Void in
-            
-            if error == nil {
-                println("found image")
-                let image = UIImage(data: imageData)
+
+        //        myCell.title.text = titles[indexPath.row]
+        //        myCell.username.text = usernames[indexPath.row]
+
+
+        //If any item is searched then show searched data else show all data
+        if(searchBar.text != "") {
+
+            cell.firstType.text = filteredData[indexPath.row].firstType
+            cell.firstBrand.text = filteredData[indexPath.row].firstBrand
+            cell.firstName.text = filteredData[indexPath.row].firstName
+            cell.firstPrice.text = filteredData[indexPath.row].firstPrice
+
+
+            cell.secondType.text = filteredData[indexPath.row].secondType
+            cell.secondBrand.text = filteredData[indexPath.row].secondBrand
+            cell.secondName.text = filteredData[indexPath.row].secondName
+            cell.secondPrice.text = filteredData[indexPath.row].secondPrice
+
+
+            filteredData[indexPath.row].firstImageFiles.getDataInBackgroundWithBlock{
+                (imageData: NSData!, error: NSError!) -> Void in
+
+                if error == nil {
+                    println("found image")
+                    let image = UIImage(data: imageData)
+
+                    cell.firstImage.image = image
+                }
+
+            }
+
+            filteredData[indexPath.row].secondImageFiles.getDataInBackgroundWithBlock{
+                (imageData: NSData!, error: NSError!) -> Void in
+
+                if error == nil {
+                    println("found image")
+                    let image = UIImage(data: imageData)
+
+                    cell.secondImage.image = image
+                }
+
+            }
+
+        }
+        else
+        {
+
+            cell.firstType.text = firstType[indexPath.row]
+            cell.firstBrand.text = firstBrand[indexPath.row]
+            cell.firstName.text = firstName[indexPath.row]
+            cell.firstPrice.text = firstPrice[indexPath.row]
+            cell.firstBrand.text = firstBrand[indexPath.row]
+
+
+            cell.secondType.text = secondType[indexPath.row]
+            cell.secondBrand.text = secondBrand[indexPath.row]
+            cell.secondName.text = secondName[indexPath.row]
+            cell.secondPrice.text = secondPrice[indexPath.row]
+            cell.secondBrand.text = secondBrand[indexPath.row]
+
+
+            firstImageFiles[indexPath.row].getDataInBackgroundWithBlock{
+                (imageData: NSData!, error: NSError!) -> Void in
+
+                if error == nil {
+                    println("found image")
+                    let image = UIImage(data: imageData)
+
+                    cell.firstImage.image = image
+                }
                 
-                cell.firstImage.image = image
             }
             
-        }
-        
-        secondImageFiles[indexPath.row].getDataInBackgroundWithBlock{
-            (imageData: NSData!, error: NSError!) -> Void in
-            
-            if error == nil {
-                println("found image")
-                let image = UIImage(data: imageData)
+            secondImageFiles[indexPath.row].getDataInBackgroundWithBlock{
+                (imageData: NSData!, error: NSError!) -> Void in
                 
-                cell.secondImage.image = image
+                if error == nil {
+                    println("found image")
+                    let image = UIImage(data: imageData)
+                    
+                    cell.secondImage.image = image
+                }
+                
             }
             
         }
 
-
-        
         return cell
         
     }
     
     
-
-
+    
+    
+    
 }
-
