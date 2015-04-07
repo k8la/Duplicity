@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableViewAll: UITableView!
+    @IBOutlet weak var tableViewSearched: UITableView!
+    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var btnCancle: UIButton!
 
     var searchResults = []
     var searchActive : Bool = false
@@ -38,28 +40,10 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
 
         /* Setup delegates */
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableViewAll.delegate = self
+        tableViewAll.dataSource = self
         searchBar.delegate = self
-        //        self.searchResults = []
-        //        self.searchController = UISearchController(searchResultsController: nil)
-        //        self.searchController.searchResultsUpdater = self
-        //        self.searchController.delegate = self
-        //        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
-        //        self.tableView.tableHeaderView = self.searchController.searchBar
-        //        self.definesPresentationContext = true
-        //
-        //        return searchController
-
-
-        //        let controller = UISearchController(searchResultsController: nil)
-        //        controller.searchResultsUpdater = self
-        //        controller.hidesNavigationBarDuringPresentation = true
-        //        controller.dimsBackgroundDuringPresentation = false
-        //        controller.searchBar.sizeToFit()
-
-
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableViewAll.separatorStyle = UITableViewCellSeparatorStyle.None
 
 
         var query = PFQuery(className:"Post")
@@ -86,7 +70,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
                     //                    self.secondImages.append(object["secondImage"] as UIImage)
                     self.secondImageFiles.append(object["secondImageFile"] as PFFile)
 
-                    self.tableView.reloadData()
+                    self.tableViewAll.reloadData()
                 } // for ojbect in objects
 
             } else {
@@ -97,33 +81,44 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
     }
 
-
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func textFieldShouldBeginEditing(txtFeild: UITextField)-> Bool
+    {
         searchActive = true;
+        return true;
     }
+    func textFieldDidBeginEditing(txtFeild: UITextField)
+    {
+        searchActive = true;
 
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    }
+    func textFieldShouldEndEditing(txtFeild: UITextField) -> Bool
+    {
+        searchActive = false;
+
+        return true;
+    }
+    func textFieldDidEndEditing(txtFeild: UITextField)
+    {
         searchActive = false;
     }
 
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
+    func textField(textField: UITextField,
+        shouldChangeCharactersInRange range: NSRange,
+        replacementString string: String)
+    {
 
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 
         filteredData.removeAll(keepCapacity: false)
-
+        if(filteredData.count == 0)
+        {
+            tableViewSearched.hidden = true;
+        }
 
         //To add searched FirstBrand
         var filteredFirstBrand = [String]()
         filteredFirstBrand = firstBrand.filter({ (text) -> Bool in
             let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range = tmp.rangeOfString(textField.text, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         for str in filteredFirstBrand {
@@ -148,7 +143,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         var filteredSecondBrand = [String]()
         filteredSecondBrand = secondBrand.filter({ (text) -> Bool in
             let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range = tmp.rangeOfString(textField.text, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         for str in filteredSecondBrand {
@@ -168,13 +163,13 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             tempProduct.secondImageFiles = secondImageFiles[index]
             filteredData.append(tempProduct)
         }
-        
+
 
         //To add searched FirstType
         var filteredFirstType = [String]()
         filteredFirstType = firstType.filter({ (text) -> Bool in
             let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range = tmp.rangeOfString(textField.text, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         for str in filteredFirstType {
@@ -194,13 +189,13 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             tempProduct.secondImageFiles = secondImageFiles[index]
             filteredData.append(tempProduct)
         }
-        
+
 
         //To add searched SecondType
         var filteredSecondType = [String]()
         filteredSecondType = secondType.filter({ (text) -> Bool in
             let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range = tmp.rangeOfString(textField.text, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         for str in filteredSecondType {
@@ -220,13 +215,13 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             tempProduct.secondImageFiles = secondImageFiles[index]
             filteredData.append(tempProduct)
         }
-        
+
 
         //To add searched FirstName
         var filteredFirstName = [String]()
         filteredFirstName = firstName.filter({ (text) -> Bool in
             let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range = tmp.rangeOfString(textField.text, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         for str in filteredFirstName {
@@ -246,13 +241,13 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             tempProduct.secondImageFiles = secondImageFiles[index]
             filteredData.append(tempProduct)
         }
-        
+
 
         //to add searched SecondName
         var filteredSecondName = [String]()
         filteredSecondName = secondName.filter({ (text) -> Bool in
             let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range = tmp.rangeOfString(textField.text, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         for str in filteredSecondName {
@@ -272,10 +267,22 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             tempProduct.secondImageFiles = secondImageFiles[index]
             filteredData.append(tempProduct)
         }
+        println("SecondName , \(self.searchBar.text)!")
 
-        self.tableView.reloadData()
+
+        if(string == "")
+        {
+            filteredData.removeAll(keepCapacity: false)
+                tableViewSearched.hidden = true;
+        }
+        self.tableViewSearched.reloadData()
     }
 
+
+    @IBAction func cancel(sender: AnyObject) {
+        searchActive = false;
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -287,12 +294,71 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        //If no item is searched then show all data
+        
         if(searchBar.text != "") {
+            if(filteredData.count > 0)
+            {
+
+
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
+
+                    self.tableViewSearched.hidden = false;
+
+                    }
+                }
+
+            }
+            else
+            {
+
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
+
+                    self.tableViewSearched.hidden = true;
+
+                    }
+                }
+            }
+        }
+        //If no item is searched then show all data
+        if(tableView == tableViewSearched)
+        {
+            if(self.searchBar.text != "") {
+                if(filteredData.count > 0)
+                {
+
+                    dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
+
+                        self.tableViewSearched.hidden = false;
+                        
+                        }
+                    }                }
+                else
+                {
+
+                    dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
+
+                        self.tableViewSearched.hidden = true;
+                        
+                        }
+                    }
+                }
+            }
+            else
+            {
+
+
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
+
+                    self.tableViewSearched.hidden = true;
+
+                    }
+                }
+            }
             return filteredData.count
+
         }
         return self.firstType.count
+
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -300,14 +366,15 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as CustomTableViewCell
+        let cell = self.tableViewAll.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as CustomTableViewCell
 
         //        myCell.title.text = titles[indexPath.row]
         //        myCell.username.text = usernames[indexPath.row]
 
 
         //If any item is searched then show searched data else show all data
-        if(searchBar.text != "") {
+        if(tableView == tableViewSearched)
+        {
 
             cell.firstType.text = filteredData[indexPath.row].firstType
             cell.firstBrand.text = filteredData[indexPath.row].firstBrand
@@ -346,6 +413,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             }
 
         }
+
         else
         {
 
@@ -369,7 +437,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
                 if error == nil {
                     println("found image")
                     let image = UIImage(data: imageData)
-
+                    
                     cell.firstImage.image = image
                 }
                 
@@ -388,7 +456,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             }
             
         }
-
+        
         return cell
         
     }
