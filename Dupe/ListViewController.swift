@@ -14,6 +14,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableViewSearched: UITableView!
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var btnCancle: UIButton!
+    @IBOutlet weak var viewSearched: UIView!
 
     var searchResults = []
     var searchActive : Bool = false
@@ -94,7 +95,6 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     func textFieldShouldEndEditing(txtFeild: UITextField) -> Bool
     {
         searchActive = false;
-
         return true;
     }
     func textFieldDidEndEditing(txtFeild: UITextField)
@@ -109,10 +109,6 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
 
         filteredData.removeAll(keepCapacity: false)
-        if(filteredData.count == 0)
-        {
-            tableViewSearched.hidden = true;
-        }
 
         //To add searched FirstBrand
         var filteredFirstBrand = [String]()
@@ -273,7 +269,6 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         if(string == "")
         {
             filteredData.removeAll(keepCapacity: false)
-                tableViewSearched.hidden = true;
         }
         self.tableViewSearched.reloadData()
     }
@@ -294,29 +289,21 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if(searchBar.text != "") {
             if(filteredData.count > 0)
             {
-
-
-                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
-
-                    self.tableViewSearched.hidden = false;
-
-                    }
-                }
+                self.tableViewSearched.hidden = false;
+                self.viewSearched.hidden = false;
+                self.tableViewAll.scrollEnabled = false;                    self.tableViewAll.userInteractionEnabled = false;
 
             }
             else
             {
+                self.tableViewSearched.hidden = true;
+                self.viewSearched.hidden = true;
+                self.tableViewAll.scrollEnabled = true;                    self.tableViewAll.userInteractionEnabled = true;
 
-                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
-
-                    self.tableViewSearched.hidden = true;
-
-                    }
-                }
             }
         }
         //If no item is searched then show all data
@@ -325,34 +312,26 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             if(self.searchBar.text != "") {
                 if(filteredData.count > 0)
                 {
+                    self.tableViewSearched.hidden = false;
+                    self.viewSearched.hidden = false;
+                    self.tableViewAll.scrollEnabled = false;                    self.tableViewAll.userInteractionEnabled = false;
 
-                    dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
-
-                        self.tableViewSearched.hidden = false;
-                        
-                        }
-                    }                }
+                }
                 else
                 {
-
-                    dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
-
-                        self.tableViewSearched.hidden = true;
-                        
-                        }
-                    }
+                    self.tableViewSearched.hidden = true;
+                    self.viewSearched.hidden = true;
+                    self.tableViewAll.userInteractionEnabled = true;
+                    self.tableViewAll.scrollEnabled = true;
                 }
             }
             else
             {
+                self.tableViewSearched.hidden = true;
+                self.viewSearched.hidden = true;
+                self.tableViewAll.scrollEnabled = true;
+                self.tableViewAll.userInteractionEnabled = true;
 
-
-                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {                     dispatch_async(dispatch_get_main_queue()) {
-
-                    self.tableViewSearched.hidden = true;
-
-                    }
-                }
             }
             return filteredData.count
 
@@ -433,7 +412,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
             firstImageFiles[indexPath.row].getDataInBackgroundWithBlock{
                 (imageData: NSData!, error: NSError!) -> Void in
-
+                
                 if error == nil {
                     println("found image")
                     let image = UIImage(data: imageData)
