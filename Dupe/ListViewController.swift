@@ -81,7 +81,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         } //query.findObjects
 
     }
+    override func viewWillAppear(animated: Bool) {
 
+        self.navigationController?.navigationBarHidden = false;
+
+    }
     func textFieldShouldBeginEditing(txtFeild: UITextField)-> Bool
     {
         searchActive = true;
@@ -339,21 +343,17 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         return self.firstType.count
 
     }
-
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 284
-    }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableViewAll.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as CustomTableViewCell
-
-        //        myCell.title.text = titles[indexPath.row]
+               //        myCell.title.text = titles[indexPath.row]
         //        myCell.username.text = usernames[indexPath.row]
 
 
         //If any item is searched then show searched data else show all data
         if(tableView == tableViewSearched)
         {
+            let cell = self.tableViewSearched.dequeueReusableCellWithIdentifier("myCellSearch", forIndexPath: indexPath) as CustomTableViewCell
+            
 
             cell.firstType.text = filteredData[indexPath.row].firstType
             cell.firstBrand.text = filteredData[indexPath.row].firstBrand
@@ -390,11 +390,14 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
                 }
 
             }
+            return cell
 
         }
 
         else
         {
+            let cell = self.tableViewAll.dequeueReusableCellWithIdentifier("myCellAll", forIndexPath: indexPath) as CustomTableViewCell
+            
 
             cell.firstType.text = firstType[indexPath.row]
             cell.firstBrand.text = firstBrand[indexPath.row]
@@ -433,11 +436,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
                 }
                 
             }
-            
+            return cell
+
         }
         
-        return cell
-        
+
     }
     
     
