@@ -37,9 +37,26 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
     //    func updateSearchResultsForSearchController(searchController: UISearchController)
 
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func didTapView(){
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: "didTapView")
+        self.view.addGestureRecognizer(tapRecognizer)
+        
 
+        
+        
+        
         /* Setup delegates */
         tableViewAll.delegate = self
         tableViewAll.dataSource = self

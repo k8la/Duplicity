@@ -785,7 +785,6 @@
                                             <outlet property="secondName" destination="s5E-Py-N9r" id="f85-Jl-2bb"/>
                                             <outlet property="secondPrice" destination="94U-Mw-z66" id="TYd-uM-7Vy"/>
                                             <outlet property="secondType" destination="Ng5-d9-u1I" id="7ro-6b-UvX"/>
-                                            <segue destination="lAc-Wi-kOJ" kind="show" id="cFD-g2-txb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -794,6 +793,12 @@
                                     <outlet property="delegate" destination="0wd-wh-ODq" id="JLM-hQ-vJQ"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line.png" translatesAutoresizingMaskIntoConstraints="NO" id="b11-oQ-7YK">
+                                <rect key="frame" x="329" y="107" width="80" height="3"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line.png" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-ug-6Si">
+                                <rect key="frame" x="200" y="107" width="80" height="3"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -863,7 +868,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="748-If-NTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="49.5"/>
+            <point key="canvasLocation" x="897" y="49"/>
         </scene>
         <!--Dupe List-->
         <scene sceneID="8Vj-OM-7P0">
@@ -1935,6 +1940,7 @@
     <resources>
         <image name="Cancel.png" width="96" height="96"/>
         <image name="Header_Line.png" width="1683" height="6"/>
+        <image name="Line.png" width="306" height="12"/>
         <image name="Pink_post.png" width="96" height="69"/>
         <image name="Pink_rectangle.png" width="582" height="216"/>
         <image name="Rectangle1.png" width="582" height="216"/>
@@ -1944,7 +1950,4 @@
         <image name="placeholder.png" width="96" height="96"/>
         <image name="rectangle.png" width="363" height="114"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cFD-g2-txb"/>
-    </inferredMetricsTieBreakers>
 </document>
