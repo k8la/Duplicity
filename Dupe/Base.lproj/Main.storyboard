@@ -1150,7 +1150,7 @@
                                             <constraint firstAttribute="height" constant="30" id="pEQ-NP-cpj"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1158,7 +1158,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PRODUCT NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4tM-3x-hQ9">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DUPE NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4tM-3x-hQ9">
                                         <rect key="frame" x="303" y="148" width="202" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1170,7 +1170,7 @@
                                             </constraint>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1190,7 +1190,7 @@
                                             <constraint firstAttribute="height" constant="30" id="qHE-N0-BNa"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1222,7 +1222,7 @@
                                             </constraint>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PRODUCT BRAND" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASx-Ux-hG3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DUPE BRAND" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASx-Ux-hG3">
                                         <rect key="frame" x="303" y="82" width="202" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1234,7 +1234,7 @@
                                             <constraint firstAttribute="height" constant="30" id="KOA-hk-fHr"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1242,7 +1242,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PRODUCT PRICE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82v-6h-OfY">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DUPE PRICE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82v-6h-OfY">
                                         <rect key="frame" x="303" y="210" width="202" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1254,7 +1254,7 @@
                                             </constraint>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1274,14 +1274,14 @@
                                             </constraint>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PRODUCT TYPE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-AA-tT9">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DUPE TYPE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-AA-tT9">
                                         <rect key="frame" x="303" y="20" width="202" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1av-d8-TzG"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1296,7 +1296,7 @@
                                             <constraint firstAttribute="height" constant="30" id="K1U-L4-rsn"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852314756" blue="0.99488643208422478" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -1328,7 +1328,7 @@
                                             <constraint firstAttribute="height" constant="30" id="kZr-ae-Nlp"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="0.9873730852" blue="0.99488643210000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
