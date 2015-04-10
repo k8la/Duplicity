@@ -450,7 +450,7 @@
                                     <constraint firstAttribute="height" constant="30" id="kpv-QQ-BeY"/>
                                 </constraints>
                                 <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
@@ -461,8 +461,8 @@
                                     <outlet property="delegate" destination="0wd-wh-ODq" id="WFR-Aa-TVl"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuj-UT-TsF">
-                                <rect key="frame" x="551" y="33" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuj-UT-TsF">
+                                <rect key="frame" x="551" y="33" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="7AA-Az-Mxv"/>
                                     <constraint firstAttribute="height" constant="25" id="9CD-f5-PzJ">
@@ -491,6 +491,7 @@
                                             <constraint firstAttribute="height" constant="30" id="9ma-M4-D2Q"/>
                                             <constraint firstAttribute="width" constant="39" id="vkC-vV-ar8"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="ALL">
                                             <color key="titleColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -502,6 +503,7 @@
                                             <constraint firstAttribute="height" constant="30" id="IcW-EV-Fic"/>
                                             <constraint firstAttribute="width" constant="39" id="cPw-VR-c8X"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="ME">
                                             <color key="titleColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -558,7 +560,7 @@
                                                         <constraint firstAttribute="width" constant="33" id="R6W-f9-HXm"/>
                                                         <constraint firstAttribute="height" constant="24" id="l6u-Yo-oiE"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -568,7 +570,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="4dV-pX-lZx"/>
                                                         <constraint firstAttribute="width" constant="125" id="H16-0r-2wi"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -578,7 +580,7 @@
                                                         <constraint firstAttribute="width" constant="77" id="pqE-gM-KVy"/>
                                                         <constraint firstAttribute="height" constant="21" id="qDw-Ub-xSA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -608,7 +610,7 @@
                                                         <constraint firstAttribute="width" constant="68" id="1kF-7i-37p"/>
                                                         <constraint firstAttribute="height" constant="15" id="Vq9-01-1So"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -618,7 +620,7 @@
                                                         <constraint firstAttribute="height" constant="24" id="Kyo-hh-3kx"/>
                                                         <constraint firstAttribute="width" constant="33" id="gc6-LM-vRc"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -628,7 +630,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="aQt-1T-fh2"/>
                                                         <constraint firstAttribute="width" constant="125" id="iFk-F2-9sd"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -638,7 +640,7 @@
                                                         <constraint firstAttribute="width" constant="79" id="QJB-fP-iwU"/>
                                                         <constraint firstAttribute="height" constant="21" id="z5u-GV-RUu"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -648,7 +650,7 @@
                                                         <constraint firstAttribute="height" constant="15" id="Ha8-UV-yFQ"/>
                                                         <constraint firstAttribute="width" constant="68" id="J7L-Tl-IxW"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -844,7 +846,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="DUPLICITY" id="8tw-a6-qzl">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Camera.png" style="plain" id="2ua-b6-C5h">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2ua-b6-C5h">
+                            <color key="tintColor" red="0.56862745098039214" green="0.54509803921568623" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="lAc-Wi-kOJ" kind="show" id="d9B-0o-lOc"/>
                             </connections>
@@ -1904,7 +1907,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera.png" width="36" height="29"/>
         <image name="Cancel.png" width="96" height="96"/>
         <image name="Header_Line.png" width="1683" height="6"/>
         <image name="Post.png" width="96" height="69"/>
