@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qas-V1-SmJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qas-V1-SmJ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="37" id="rDN-qK-alJ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="sgR-aX-bIW"/>
                                 </constraints>
-                                <state key="normal" image="rectangle.png">
+                                <state key="normal" image="Rectangle1.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -113,7 +113,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="XaA-eW-4Kg"/>
                                     <constraint firstAttribute="height" constant="37" id="hau-qG-yBe"/>
                                 </constraints>
-                                <state key="normal" image="rectangle.png">
+                                <state key="normal" image="Rectangle1.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -582,7 +582,7 @@
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLX-09-lZD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLX-09-lZD">
                                                     <constraints>
                                                         <constraint firstAttribute="height" id="Gbv-z5-dCi"/>
                                                         <constraint firstAttribute="width" id="vQf-hr-27Q"/>
@@ -591,7 +591,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-sW-J6x">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-sW-J6x">
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" id="0Yr-fu-8w4"/>
                                                         <constraint firstAttribute="height" id="cwl-Wg-Hhl"/>
@@ -844,7 +844,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="DUPLICITY" id="8tw-a6-qzl">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Camera.png" style="plain" id="2ua-b6-C5h"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Camera.png" style="plain" id="2ua-b6-C5h">
+                            <connections>
+                                <segue destination="lAc-Wi-kOJ" kind="show" id="d9B-0o-lOc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnCancle" destination="Iuj-UT-TsF" id="lGk-ec-ccp"/>
@@ -1904,10 +1908,14 @@
         <image name="Cancel.png" width="96" height="96"/>
         <image name="Header_Line.png" width="1683" height="6"/>
         <image name="Post.png" width="96" height="69"/>
+        <image name="Rectangle1.png" width="582" height="216"/>
         <image name="Search.png" width="96" height="99"/>
         <image name="detail.png" width="2100" height="2097"/>
         <image name="login1.png" width="1800" height="1800"/>
         <image name="placeholder.png" width="96" height="96"/>
         <image name="rectangle.png" width="363" height="114"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cFD-g2-txb"/>
+    </inferredMetricsTieBreakers>
 </document>
