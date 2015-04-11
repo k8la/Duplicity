@@ -15,6 +15,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var btnCancle: UIButton!
     @IBOutlet weak var viewSearched: UIView!
+    
+    @IBAction func deleteTextField(sender: UIButton) {
+        
+        searchBar.text = ""
+    }
 
     var searchResults = []
     var searchActive : Bool = false
