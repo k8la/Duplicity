@@ -535,8 +535,13 @@
                                     <outlet property="delegate" destination="0wd-wh-ODq" id="WFR-Aa-TVl"/>
                                 </connections>
                             </textField>
+<<<<<<< HEAD
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuj-UT-TsF">
+                                <rect key="frame" x="557" y="19" width="21" height="21"/>
+=======
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuj-UT-TsF">
                                 <rect key="frame" x="551" y="33" width="24" height="24"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                 <constraints>
                                     <constraint firstAttribute="width" constant="21" id="7AA-Az-Mxv"/>
                                     <constraint firstAttribute="height" constant="21" id="9CD-f5-PzJ">
@@ -619,8 +624,13 @@
                                 <rect key="frame" x="0.0" y="110" width="600" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.83000000000000007" colorSpace="calibratedWhite"/>
                             </view>
+<<<<<<< HEAD
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="222" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-l4-BuL">
+                                <rect key="frame" x="0.0" y="156" width="600" height="338"/>
+=======
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="263" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-l4-BuL">
                                 <rect key="frame" x="0.0" y="173" width="600" height="318"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -655,7 +665,11 @@
                                                         <constraint firstAttribute="width" constant="33" id="R6W-f9-HXm"/>
                                                         <constraint firstAttribute="height" constant="24" id="l6u-Yo-oiE"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -665,7 +679,11 @@
                                                         <constraint firstAttribute="height" constant="21" id="4dV-pX-lZx"/>
                                                         <constraint firstAttribute="width" constant="125" id="H16-0r-2wi"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -675,7 +693,11 @@
                                                         <constraint firstAttribute="width" constant="77" id="pqE-gM-KVy"/>
                                                         <constraint firstAttribute="height" constant="21" id="qDw-Ub-xSA"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -705,7 +727,11 @@
                                                         <constraint firstAttribute="width" constant="68" id="1kF-7i-37p"/>
                                                         <constraint firstAttribute="height" constant="15" id="Vq9-01-1So"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -715,7 +741,11 @@
                                                         <constraint firstAttribute="height" constant="24" id="Kyo-hh-3kx"/>
                                                         <constraint firstAttribute="width" constant="33" id="gc6-LM-vRc"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -725,7 +755,11 @@
                                                         <constraint firstAttribute="height" constant="21" id="aQt-1T-fh2"/>
                                                         <constraint firstAttribute="width" constant="125" id="iFk-F2-9sd"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -735,7 +769,11 @@
                                                         <constraint firstAttribute="width" constant="79" id="QJB-fP-iwU"/>
                                                         <constraint firstAttribute="height" constant="21" id="z5u-GV-RUu"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -745,7 +783,11 @@
                                                         <constraint firstAttribute="height" constant="15" id="Ha8-UV-yFQ"/>
                                                         <constraint firstAttribute="width" constant="68" id="J7L-Tl-IxW"/>
                                                     </constraints>
+<<<<<<< HEAD
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+=======
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <color key="textColor" red="0.9613035821" green="0.98347815689999996" blue="0.96749584389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -844,8 +886,12 @@
                                                     <variation key="widthClass=compact" constant="34"/>
                                                     <variation key="heightClass=regular-widthClass=compact" constant="37"/>
                                                 </constraint>
+<<<<<<< HEAD
+                                                <constraint firstItem="bLX-09-lZD" firstAttribute="top" secondItem="Hmb-gb-ZXb" secondAttribute="bottom" constant="-162" id="oKD-Up-RAw">
+=======
                                                 <constraint firstAttribute="trailingMargin" secondItem="sQn-8H-wEd" secondAttribute="trailing" constant="74" id="niG-vX-KF1"/>
                                                 <constraint firstItem="bLX-09-lZD" firstAttribute="top" secondItem="Hmb-gb-ZXb" secondAttribute="bottom" constant="-161" id="oKD-Up-RAw">
+>>>>>>> b7d4f3144b420ef21a82c9867bea938742bf5f97
                                                     <variation key="widthClass=compact" constant="-159"/>
                                                     <variation key="heightClass=regular-widthClass=compact" constant="-142"/>
                                                 </constraint>

@@ -19,6 +19,17 @@
 		84662A571AB77FA7003F19E5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84662A561AB77FA7003F19E5 /* libz.dylib */; };
 		84662A591AB77FAF003F19E5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84662A581AB77FAF003F19E5 /* libsqlite3.dylib */; };
 		84662A5D1ABA27BC003F19E5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84662A5C1ABA27BC003F19E5 /* ListViewController.swift */; };
+		847618D91AD874FD00B5F345 /* login1.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618D81AD874FD00B5F345 /* login1.png */; };
+		847618DB1AD8753E00B5F345 /* Rectangle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618DA1AD8753E00B5F345 /* Rectangle1.png */; };
+		847618DD1AD876F000B5F345 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618DC1AD876F000B5F345 /* Add.png */; };
+		847618DF1AD87FB900B5F345 /* Pink_post.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618DE1AD87FB900B5F345 /* Pink_post.png */; };
+		847618E11AD880DD00B5F345 /* Line.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618E01AD880DD00B5F345 /* Line.png */; };
+		847618E31AD8821F00B5F345 /* Pink_rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618E21AD8821F00B5F345 /* Pink_rectangle.png */; };
+		847618E71AD8B39500B5F345 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 847618E61AD8B39500B5F345 /* share.png */; };
+		847618EA1ADA24BC00B5F345 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847618E81ADA24BC00B5F345 /* FBSDKCoreKit.framework */; };
+		847618EB1ADA24BC00B5F345 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847618E91ADA24BC00B5F345 /* FBSDKLoginKit.framework */; };
+		847618ED1ADA28F800B5F345 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847618EC1ADA28F800B5F345 /* FBSDKShareKit.framework */; };
+		8482C08C1ADA2CBA0062EE56 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8482C08B1ADA2CBA0062EE56 /* FacebookSDK.framework */; };
 		8482C0DA1ABE14AB00F8A726 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482C0D91ABE14AB00F8A726 /* CustomTableViewCell.swift */; };
 		84A3E4041ABA65690074734E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A3E4031ABA65690074734E /* PostViewController.swift */; };
 		84A6AF851AB3782D002B79AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6AF841AB3782D002B79AD /* AppDelegate.swift */; };
@@ -74,6 +85,17 @@
 		84662A561AB77FA7003F19E5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		84662A581AB77FAF003F19E5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		84662A5C1ABA27BC003F19E5 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		847618D81AD874FD00B5F345 /* login1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login1.png; sourceTree = SOURCE_ROOT; };
+		847618DA1AD8753E00B5F345 /* Rectangle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle1.png; sourceTree = "<group>"; };
+		847618DC1AD876F000B5F345 /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add.png; sourceTree = "<group>"; };
+		847618DE1AD87FB900B5F345 /* Pink_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pink_post.png; sourceTree = SOURCE_ROOT; };
+		847618E01AD880DD00B5F345 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line.png; sourceTree = SOURCE_ROOT; };
+		847618E21AD8821F00B5F345 /* Pink_rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pink_rectangle.png; sourceTree = SOURCE_ROOT; };
+		847618E61AD8B39500B5F345 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = SOURCE_ROOT; };
+		847618E81ADA24BC00B5F345 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		847618E91ADA24BC00B5F345 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		847618EC1ADA28F800B5F345 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8482C08B1ADA2CBA0062EE56 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		8482C0D91ABE14AB00F8A726 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		84A3E4001ABA49E70074734E /* Duplicity-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Duplicity-Bridging-Header.h"; sourceTree = "<group>"; };
 		84A3E4031ABA65690074734E /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -108,15 +130,19 @@
 			files = (
 				84662A591AB77FAF003F19E5 /* libsqlite3.dylib in Frameworks */,
 				84662A571AB77FA7003F19E5 /* libz.dylib in Frameworks */,
+				847618EB1ADA24BC00B5F345 /* FBSDKLoginKit.framework in Frameworks */,
 				84662A551AB77FA0003F19E5 /* SystemConfiguration.framework in Frameworks */,
 				FEFE0BD81ACAD4450065D219 /* Bolts.framework in Frameworks */,
 				84662A531AB77F98003F19E5 /* StoreKit.framework in Frameworks */,
 				84662A511AB77F92003F19E5 /* Security.framework in Frameworks */,
 				FEFE0BDA1ACAD4450065D219 /* Parse.framework in Frameworks */,
+				8482C08C1ADA2CBA0062EE56 /* FacebookSDK.framework in Frameworks */,
+				847618ED1ADA28F800B5F345 /* FBSDKShareKit.framework in Frameworks */,
 				84662A4F1AB77F88003F19E5 /* QuartzCore.framework in Frameworks */,
 				84662A4D1AB77F81003F19E5 /* MobileCoreServices.framework in Frameworks */,
 				84662A4B1AB77F7B003F19E5 /* CoreLocation.framework in Frameworks */,
 				84662A491AB77F74003F19E5 /* CoreGraphics.framework in Frameworks */,
+				847618EA1ADA24BC00B5F345 /* FBSDKCoreKit.framework in Frameworks */,
 				84662A471AB77F6C003F19E5 /* CFNetwork.framework in Frameworks */,
 				84662A451AB77F66003F19E5 /* AudioToolbox.framework in Frameworks */,
 			);
@@ -137,6 +163,10 @@
 		84A6AF761AB3782D002B79AD = {
 			isa = PBXGroup;
 			children = (
+				8482C08B1ADA2CBA0062EE56 /* FacebookSDK.framework */,
+				847618EC1ADA28F800B5F345 /* FBSDKShareKit.framework */,
+				847618E81ADA24BC00B5F345 /* FBSDKCoreKit.framework */,
+				847618E91ADA24BC00B5F345 /* FBSDKLoginKit.framework */,
 				84662A581AB77FAF003F19E5 /* libsqlite3.dylib */,
 				84662A561AB77FA7003F19E5 /* libz.dylib */,
 				FEFE0BD61ACAD4450065D219 /* Bolts.framework */,
@@ -170,13 +200,13 @@
 			children = (
 				84A6AF841AB3782D002B79AD /* AppDelegate.swift */,
 				84A6AF8B1AB3782D002B79AD /* Main.storyboard */,
+				84A6B0151AB3B962002B79AD /* LoginViewController.swift */,
 				84A3E4031ABA65690074734E /* PostViewController.swift */,
 				FE2CA6151AD40BD100FE88CB /* images */,
 				84662A5C1ABA27BC003F19E5 /* ListViewController.swift */,
 				FE1278541AD8188C00B38A26 /* AddDupeViewController.swift */,
 				FEFE0BDF1ACADE2C0065D219 /* Product.swift */,
 				8482C0D91ABE14AB00F8A726 /* CustomTableViewCell.swift */,
-				84A6B0151AB3B962002B79AD /* LoginViewController.swift */,
 				84A6AF8E1AB3782D002B79AD /* Images.xcassets */,
 				84A3E4001ABA49E70074734E /* Duplicity-Bridging-Header.h */,
 				84A6AF901AB3782D002B79AD /* LaunchScreen.xib */,
@@ -189,6 +219,13 @@
 		84A6AF821AB3782D002B79AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				847618DC1AD876F000B5F345 /* Add.png */,
+				847618E01AD880DD00B5F345 /* Line.png */,
+				847618D81AD874FD00B5F345 /* login1.png */,
+				847618DE1AD87FB900B5F345 /* Pink_post.png */,
+				847618E61AD8B39500B5F345 /* share.png */,
+				847618E21AD8821F00B5F345 /* Pink_rectangle.png */,
+				847618DA1AD8753E00B5F345 /* Rectangle1.png */,
 				84A6AF831AB3782D002B79AD /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -308,11 +345,18 @@
 				FE2CA6211AD40BDC00FE88CB /* Header_Line.png in Resources */,
 				FE2CA6251AD40BDC00FE88CB /* Post.png in Resources */,
 				FE2CA62C1AD40D7300FE88CB /* Camera.png in Resources */,
+				847618D91AD874FD00B5F345 /* login1.png in Resources */,
 				84A6AF8D1AB3782D002B79AD /* Main.storyboard in Resources */,
+				847618DF1AD87FB900B5F345 /* Pink_post.png in Resources */,
+				847618DD1AD876F000B5F345 /* Add.png in Resources */,
 				FE2CA6291AD40BDC00FE88CB /* Search.png in Resources */,
 				84A6AF921AB3782D002B79AD /* LaunchScreen.xib in Resources */,
+				847618DB1AD8753E00B5F345 /* Rectangle1.png in Resources */,
+				847618E71AD8B39500B5F345 /* share.png in Resources */,
 				FE2CA61F1AD40BDC00FE88CB /* Cancel.png in Resources */,
+				847618E31AD8821F00B5F345 /* Pink_rectangle.png in Resources */,
 				FE2CA6231AD40BDC00FE88CB /* Line.png in Resources */,
+				847618E11AD880DD00B5F345 /* Line.png in Resources */,
 				FE2CA6271AD40BDC00FE88CB /* Rectangle1.png in Resources */,
 				84A6AF8F1AB3782D002B79AD /* Images.xcassets in Resources */,
 			);
@@ -478,6 +522,8 @@
 					"$(inherited)",
 					"/Users/admin/Desktop/parse-library-1.6.4",
 					"$(PROJECT_DIR)",
+					/Users/admin/Documents/FacebookSDK,
+					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Dupe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -498,6 +544,8 @@
 					"$(inherited)",
 					"/Users/admin/Desktop/parse-library-1.6.4",
 					"$(PROJECT_DIR)",
+					/Users/admin/Documents/FacebookSDK,
+					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Dupe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

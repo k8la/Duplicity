@@ -13,6 +13,10 @@ class AddDupeViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBarHidden = true;
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: "didTapView")
+        self.view.addGestureRecognizer(tapRecognizer)
 
 
         // Do any additional setup after loading the view.
@@ -27,6 +31,10 @@ class AddDupeViewController: UIViewController {
 
         self.navigationController?.popViewControllerAnimated(true);
 
+    }
+    
+    func didTapView(){
+        self.view.endEditing(true)
     }
 
 

@@ -15,6 +15,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var btnCancle: UIButton!
     @IBOutlet weak var viewSearched: UIView!
+    
+    @IBAction func deleteTextField(sender: UIButton) {
+        
+        searchBar.text = ""
+    }
 
     var searchResults = []
     var searchActive : Bool = false
@@ -37,9 +42,26 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
     //    func updateSearchResultsForSearchController(searchController: UISearchController)
 
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func didTapView(){
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: "didTapView")
+        self.view.addGestureRecognizer(tapRecognizer)
+        
 
+        
+        
+        
         /* Setup delegates */
         tableViewAll.delegate = self
         tableViewAll.dataSource = self
