@@ -1130,10 +1130,10 @@
             </objects>
             <point key="canvasLocation" x="996" y="1459"/>
         </scene>
-        <!--Add Dupe View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="qHL-Zp-I2v">
             <objects>
-                <viewController id="lAc-Wi-kOJ" customClass="AddDupeViewController" customModule="Duplicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lAc-Wi-kOJ" customClass="PostViewController" customModule="Duplicity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KS7-ud-2Bn"/>
                         <viewControllerLayoutGuide type="bottom" id="pB8-sg-2MH"/>

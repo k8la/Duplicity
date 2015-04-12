@@ -406,6 +406,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate,UIIma
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true;
+
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: "didTapView")
+        self.view.addGestureRecognizer(tapRecognizer)
         // Do any additional setup after loading the view, typically from a nib.
 //        
 //        photoSelected = false
@@ -413,9 +418,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate,UIIma
 //        imageToPost.image = UIImage(named: "315px-Blank_woman_placeholder.svg")
 //        
 //        shareText.text = ""
-        let tapRecognizer = UITapGestureRecognizer()
-        tapRecognizer.addTarget(self, action: "didTapView")
-        self.view.addGestureRecognizer(tapRecognizer)
+       
 //        super.touchesBegan(touches, withEvent: event)
     }
     
@@ -430,6 +433,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate,UIIma
 
     func didTapView(){
         self.view.endEditing(true)
+    }
+    @IBAction func goBack(sender: AnyObject) {
+
+        self.navigationController?.popViewControllerAnimated(true);
+        
     }
 
 }
