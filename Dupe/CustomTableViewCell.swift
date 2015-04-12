@@ -17,8 +17,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var firstName: UILabel!
     
-    @IBOutlet weak var firstType: UILabel!
-    
+
     @IBOutlet weak var firstPrice: UILabel!
     
     
@@ -28,9 +27,7 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var secondName: UILabel!
 
-    
-    @IBOutlet weak var secondType: UILabel!
-    
+
     @IBOutlet weak var secondPrice: UILabel!
     
     

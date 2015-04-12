@@ -13,13 +13,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableViewAll: UITableView!
     @IBOutlet weak var tableViewSearched: UITableView!
     @IBOutlet weak var searchBar: UITextField!
-    @IBOutlet weak var btnCancle: UIButton!
     @IBOutlet weak var viewSearched: UIView!
-    
-    @IBAction func deleteTextField(sender: UIButton) {
-        
-        searchBar.text = ""
-    }
+    @IBOutlet weak var viewLineMe: UIView!
+    @IBOutlet weak var viewLineAll: UIView!
+    @IBOutlet weak var ButtonMe: UIButton!
+    @IBOutlet weak var ButtonAll: UIButton!
 
     var searchResults = []
     var searchActive : Bool = false
@@ -53,15 +51,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: "didTapView")
         self.view.addGestureRecognizer(tapRecognizer)
-        
 
-        
-        
-        
         /* Setup delegates */
         tableViewAll.delegate = self
         tableViewAll.dataSource = self
@@ -101,6 +95,12 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             } // if error == nil
 
         } //query.findObjects
+
+        viewLineAll.backgroundColor = UIColor(red: 184/255, green: 37/255, blue: 110/255, alpha: 1.0);
+        viewLineMe.backgroundColor = UIColor.clearColor()
+        ButtonMe.alpha = 0.5;
+        ButtonAll.alpha = 1.0;
+        
 
     }
     override func viewWillAppear(animated: Bool) {
@@ -303,6 +303,10 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func cancel(sender: AnyObject) {
         searchActive = false;
 
+        searchBar.text = "";
+        tableViewSearched.reloadData();
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -377,15 +381,13 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             let cell = self.tableViewSearched.dequeueReusableCellWithIdentifier("myCellSearch", forIndexPath: indexPath) as CustomTableViewCell
             
 
-            cell.firstType.text = filteredData[indexPath.row].firstType
             cell.firstBrand.text = filteredData[indexPath.row].firstBrand
-            cell.firstName.text = filteredData[indexPath.row].firstName
+            cell.firstName.text = filteredData[indexPath.row].firstName + " " + filteredData[indexPath.row].firstType;
             cell.firstPrice.text = filteredData[indexPath.row].firstPrice
 
 
-            cell.secondType.text = filteredData[indexPath.row].secondType
             cell.secondBrand.text = filteredData[indexPath.row].secondBrand
-            cell.secondName.text = filteredData[indexPath.row].secondName
+            cell.secondName.text = filteredData[indexPath.row].secondName + " " + filteredData[indexPath.row].secondType;
             cell.secondPrice.text = filteredData[indexPath.row].secondPrice
 
 
@@ -412,6 +414,10 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
                 }
 
             }
+            cell.firstName.sizeToFit();
+
+            cell.updateConstraints();
+
             return cell
 
         }
@@ -421,16 +427,14 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             let cell = self.tableViewAll.dequeueReusableCellWithIdentifier("myCellAll", forIndexPath: indexPath) as CustomTableViewCell
             
 
-            cell.firstType.text = firstType[indexPath.row]
             cell.firstBrand.text = firstBrand[indexPath.row]
-            cell.firstName.text = firstName[indexPath.row]
+            cell.firstName.text = firstName[indexPath.row] + " " + firstType[indexPath.row]
             cell.firstPrice.text = firstPrice[indexPath.row]
             cell.firstBrand.text = firstBrand[indexPath.row]
 
 
-            cell.secondType.text = secondType[indexPath.row]
             cell.secondBrand.text = secondBrand[indexPath.row]
-            cell.secondName.text = secondName[indexPath.row]
+            cell.secondName.text = secondName[indexPath.row] + " " + secondType[indexPath.row]
             cell.secondPrice.text = secondPrice[indexPath.row]
             cell.secondBrand.text = secondBrand[indexPath.row]
 
@@ -458,15 +462,37 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
                 }
                 
             }
+
+            cell.firstName.sizeToFit();
+            cell.updateConstraints();
+            
+
             return cell
 
         }
         
 
     }
+
+    @IBAction func selectAllFromTable(sender: AnyObject) {
+
+        viewLineAll.backgroundColor = UIColor(red: 184/255, green: 37/255, blue: 110/255, alpha: 1.0);
+        viewLineMe.backgroundColor = UIColor.clearColor()
+        ButtonMe.alpha = 0.5;
+        ButtonAll.alpha = 1.0;
+
+
+    }
     
-    
-    
-    
+    @IBAction func selectMe(sender: AnyObject) {
+
+        viewLineMe.backgroundColor = UIColor(red: 184/255, green: 37/255, blue: 110/255, alpha: 1.0);
+        viewLineAll.backgroundColor = UIColor.clearColor()
+        ButtonAll.alpha = 0.5;
+        ButtonMe.alpha = 1.0;
+
+    }
+
+
     
 }
