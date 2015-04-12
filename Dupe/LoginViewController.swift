@@ -8,15 +8,41 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FBLoginViewDelegate {
+  
     
-
+/////////////////////////////// FACEBOOK LOGIN ////////////////////
+    var fbl: FBLoginView = FBLoginView()
+    
+    
+    func loginViewShowingLoggedInUser(loginView: FBLoginView) {
+        logStatusTxt.text = "You are logged in!"
+    }
+    
+    func loginViewFetchedUserInfo(loginView: FBLoginView?, user: FBGraphUser) {
+//        profilePictureView.profileID = user.objectID
+        userNameTxt.text = user.first_name + " " + user.last_name
+    }
+    
+    func loginViewShowingLoggedOutUser(loginView: FBLoginView?) {
+//        profilePictureView.profileID = nil
+        userNameTxt.text = ""
+        logStatusTxt.text = "You are logged out!"
+    }
    
     @IBAction func submit(sender: UIButton) {
         
         
     }
+//////////////////////////////////////////////////////////////////
     
+  
+
+    @IBOutlet var loginView : FBLoginView!
+    
+    @IBOutlet weak var userNameTxt: UILabel!
+    
+    @IBOutlet weak var logStatusTxt: UILabel!
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var logo: UILabel!
@@ -26,13 +52,38 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var submitLabel: UILabel!
-    @IBAction func signup(sender: AnyObject) {
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var loginLabel: UILabel!
+    
+    
+    @IBOutlet weak var signupButton: UIButton!
+    
+    @IBOutlet weak var signupLabel: UILabel!
+    
+
+    
+    func activeLogin () {
         
         logo.hidden = true
         email.hidden =  false
         password.hidden = false
         submitButton.hidden = false
         submitLabel.hidden = false
+        loginButton.hidden = true
+        loginLabel.hidden = true
+        signupButton.hidden = true
+        signupLabel.hidden = true
+    }
+    
+    
+    
+    
+    
+    @IBAction func signup(sender: AnyObject) {
+        
+        activeLogin()
         
         
     }
@@ -40,11 +91,8 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
 
     @IBAction func login(sender: AnyObject) {
         
-        logo.hidden = true
-        email.hidden =  false
-        password.hidden = false
-        submitButton.hidden = false
-        submitLabel.hidden = false
+        activeLogin()
+
     }
 
 
@@ -55,9 +103,17 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        fbl.delegate = self
+        loginView.readPermissions = ["public_profile", "email", "user_friends"]
+        
+        /////////////////// Dismiss Keyboard /////////////////////////////////
+        
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: "didTapView")
         self.view.addGestureRecognizer(tapRecognizer)
+        
+        //////////////////////////////////////////////////////////////////////
         
         email.hidden = true
         password.hidden = true
