@@ -51,6 +51,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+          self.navigationItem.title = "DUPLICITY"
+
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue-Light", size: 18)!]
+
+
 
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: "didTapView")
