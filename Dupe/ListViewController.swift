@@ -40,7 +40,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
     //    func updateSearchResultsForSearchController(searchController: UISearchController)
 
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
