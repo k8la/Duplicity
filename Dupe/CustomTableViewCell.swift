@@ -19,7 +19,8 @@ class CustomTableViewCell: UITableViewCell {
     
 
     @IBOutlet weak var firstPrice: UILabel!
-    
+    @IBOutlet weak var firstType: UILabel!
+
     
     @IBOutlet weak var secondImage: UIImageView!
     
@@ -29,7 +30,8 @@ class CustomTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var secondPrice: UILabel!
-    
+    @IBOutlet weak var secondType: UILabel!
+
     
     
     override func awakeFromNib() {

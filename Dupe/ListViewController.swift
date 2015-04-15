@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class ListViewController:  UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tableViewAll: UITableView!
     @IBOutlet weak var tableViewSearched: UITableView!
@@ -45,10 +45,10 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         return false
     }
     
-    func didTapView(){
-        self.view.endEditing(true)
-    }
-    
+//    func didTapView(){
+//        self.view.endEditing(true)
+//    }
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
           self.navigationItem.title = "DUPLICITY"
@@ -57,13 +57,11 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
 
 
-        let tapRecognizer = UITapGestureRecognizer()
-        tapRecognizer.addTarget(self, action: "didTapView")
-        self.view.addGestureRecognizer(tapRecognizer)
+//        let tapRecognizer = UITapGestureRecognizer()
+//        tapRecognizer.addTarget(self, action: "didTapView")
+//        self.view.addGestureRecognizer(tapRecognizer)
 
         /* Setup delegates */
-        tableViewAll.delegate = self
-        tableViewAll.dataSource = self
         searchBar.delegate = self
         self.tableViewAll.separatorStyle = UITableViewCellSeparatorStyle.None
 
@@ -374,6 +372,7 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
         return self.firstType.count
 
     }
+
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
                //        myCell.title.text = titles[indexPath.row]
@@ -387,13 +386,15 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
             
 
             cell.firstBrand.text = filteredData[indexPath.row].firstBrand
-            cell.firstName.text = filteredData[indexPath.row].firstName + " " + filteredData[indexPath.row].firstType;
-            cell.firstPrice.text = filteredData[indexPath.row].firstPrice
+            cell.firstName.text = filteredData[indexPath.row].firstName;
+            cell.firstPrice.text = "$" + filteredData[indexPath.row].firstPrice
+            cell.firstType.text = filteredData[indexPath.row].firstType
 
 
             cell.secondBrand.text = filteredData[indexPath.row].secondBrand
-            cell.secondName.text = filteredData[indexPath.row].secondName + " " + filteredData[indexPath.row].secondType;
-            cell.secondPrice.text = filteredData[indexPath.row].secondPrice
+            cell.secondName.text = filteredData[indexPath.row].secondName
+            cell.secondPrice.text = "$" + filteredData[indexPath.row].secondPrice
+            cell.secondType.text = filteredData[indexPath.row].secondType
 
 
             filteredData[indexPath.row].firstImageFiles.getDataInBackgroundWithBlock{
@@ -434,14 +435,14 @@ class ListViewController:  UIViewController, UITableViewDataSource, UITableViewD
 
             cell.firstBrand.text = firstBrand[indexPath.row]
             cell.firstName.text = firstName[indexPath.row] + " " + firstType[indexPath.row]
-            cell.firstPrice.text = firstPrice[indexPath.row]
-            cell.firstBrand.text = firstBrand[indexPath.row]
+            cell.firstPrice.text = "$" + firstPrice[indexPath.row]
+            cell.firstType.text = firstType[indexPath.row]
 
 
             cell.secondBrand.text = secondBrand[indexPath.row]
             cell.secondName.text = secondName[indexPath.row] + " " + secondType[indexPath.row]
-            cell.secondPrice.text = secondPrice[indexPath.row]
-            cell.secondBrand.text = secondBrand[indexPath.row]
+            cell.secondPrice.text = "$" + secondPrice[indexPath.row]
+            cell.secondType.text = secondType[indexPath.row]
 
 
             firstImageFiles[indexPath.row].getDataInBackgroundWithBlock{
