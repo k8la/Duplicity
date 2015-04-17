@@ -44,11 +44,12 @@ class ListViewController:  UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
-    
-//    func didTapView(){
-//        self.view.endEditing(true)
-//    }
-//    
+
+    func didTapView()
+    {
+        self.view.endEditing(true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
           self.navigationItem.title = "DUPLICITY"
@@ -56,11 +57,11 @@ class ListViewController:  UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue-Light", size: 18)!]
 
 
-
-//        let tapRecognizer = UITapGestureRecognizer()
-//        tapRecognizer.addTarget(self, action: "didTapView")
-//        self.view.addGestureRecognizer(tapRecognizer)
-
+//
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: "didTapView")
+        self.viewSearched.addGestureRecognizer(tapRecognizer)
+//
         /* Setup delegates */
         searchBar.delegate = self
         self.tableViewAll.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -489,7 +490,21 @@ class ListViewController:  UIViewController, UITextFieldDelegate {
 
 
     }
-    
+     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+     {
+        if( searchActive == true )
+        {
+            self.view.endEditing(true)
+        }
+
+        else if(tableView == tableViewSearched)
+        {
+            self.performSegueWithIdentifier("showFeature", sender: nil);
+        }
+
+
+    }
+
     @IBAction func selectMe(sender: AnyObject) {
 
         viewLineMe.backgroundColor = UIColor(red: 184/255, green: 37/255, blue: 110/255, alpha: 1.0);
@@ -498,6 +513,7 @@ class ListViewController:  UIViewController, UITextFieldDelegate {
         ButtonMe.alpha = 1.0;
 
     }
+
 
 
     
